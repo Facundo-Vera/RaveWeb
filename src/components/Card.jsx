@@ -1,38 +1,48 @@
-import "../css/Card.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+const Card = ({ data }) => {
+  const {
+    title,
+    description,
+    buttonText,
+    imageSrc,
+    imageAlt,
+    isReversed,
+    buttonUrl,
+  } = data;
 
-export const Card = ({ trabajo }) => {
-  const { nombre, imagen, descripcion } = trabajo;
+  const rowClass = isReversed ? "flex-lg-row-reverse" : "";
 
   return (
-    <div className="card-wrapper position-relative">
-      <div className="card  mt-4 p-0 d-flex flex-column">
-        <img
-          src={imagen}
-          alt={nombre}
-          className="w-100"
-          style={{ objectFit: "cover", height: "280px" }}
-        />
+    <div className={`row g-4 align-items-center mb-5 pb-5 ${rowClass}`}>
+      {/* Texto */}
+      <div className="col-12 col-lg-6 order-2 order-lg-1">
+        <h2 className="text-white fw-normal display-6 mb-3">{title}</h2>
+        <p className="text-secondary mb-4">{description}</p>
 
-        <div className="p-2  text-white d-flex flex-column flex-grow-1">
-          <p className="fw-bold m-0">{nombre}</p>
-          <p className="text-secondary mt-1">{descripcion}</p>
+        {buttonText && (
+          <a
+            href={buttonUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-light rounded-pill px-4 py-2 mt-2"
+          >
+            {buttonText}
+          </a>
+        )}
+      </div>
 
-          <div className="mt-auto d-flex gap-2 justify-content-end">
-            <button className="boton">
-              <FontAwesomeIcon icon={faGithub} className="me-2" />
-              Ver código
-            </button>
-
-            <button className="boton">
-              <FontAwesomeIcon icon={faGlobe} className="me-2" />
-              Vista previa
-            </button>
-          </div>
+      {/* Imagen */}
+      <div className="col-12 col-lg-6 order-1 order-lg-2">
+        <div className="image-wrapper rounded-3 overflow-hidden shadow-lg">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-100 d-block"
+            style={{ maxHeight: "400px", objectFit: "cover" }}
+          />
         </div>
       </div>
     </div>
   );
 };
+
+export default Card;

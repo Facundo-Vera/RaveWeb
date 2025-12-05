@@ -1,43 +1,45 @@
-import "../db/data";
-import { trabajosData } from "../db/data";
-import { Card } from "./Card";
+import Card from "./Card";
 
 const ListCard = () => {
-  const trabajos = trabajosData.trabajos;
+  const sections = [
+    {
+      id: 1,
+      title: "Landing Page - Agencia Creativa",
+      description:
+        "Este proyecto es una Landing Page de alto impacto diseñada específicamente para una Agencia de Diseño y Desarrollo moderna...",
+      buttonText: "Ver demo",
+      buttonUrl:"https://devbox-recurso.netlify.app/",
+      imageSrc:
+        "https://d25ltszcjeom5i.cloudfront.net/329462/aqlffuupki/806shots_so.png",
+      imageAlt: "Foto proyecto",
+      isReversed: false,
+    },
+    {
+      id: 2,
+      title: "Dashboard de Administración",
+      description:
+        "Este proyecto es un Panel de Control (Dashboard) centralizado diseñado para ofrecer a los administradores una visión en tiempo real y resumida del rendimiento de un negocio, aplicación o sistema.",
+      buttonText: "Ver demo",
+      buttonUrl:"https://devbox-recurso.netlify.app/",
+      imageSrc:
+        "https://d25ltszcjeom5i.cloudfront.net/329462/tbuiadjrmz/672shots_so.png",
+      imageAlt: "Foto proyecto",
+      isReversed: true,
+    },
+  ];
 
   return (
-    <div className="container py-5" id="trabajos">
-      <h2 className="fw-bold display-6 mb-4">Trabajos</h2>
+    <section className="alternating-content py-5" id="trabajos">
+      <div className="container">
+        <h2 className="fw-bold display-6 mb-5 ">
+          Trabajos
+        </h2>
 
-      <div className="row g-4">
-        {trabajos.map((trabajo, id) => {
-          
-          let colClass = "col-12 col-md-6 col-lg-4"; // Tamaño por defecto (tercios)
-          let cardSize = "small"; // Tamaño por defecto de la tarjeta
-
-          // Lógica para determinar el tamaño y la columna basado en el índice:
-          if (id === 0) {
-            // El primer elemento (índice 0) ocupa todo el ancho y es "big"
-            colClass = "col-12";
-            cardSize = "big"; 
-          } else if (id === 1 || id === 2) {
-            // Los siguientes dos elementos (índices 1 y 2) ocupan la mitad del ancho
-            colClass = "col-12 col-md-6";
-            // cardSize ya es "small" por defecto
-          } else {
-            // Todos los demás (índice 3 en adelante)
-            // colClass ya es "col-12 col-md-6 col-lg-4" por defecto
-            // cardSize ya es "small" por defecto
-          }
-
-          return (
-            <div key={id} className={colClass}>
-              <Card trabajo={trabajo} size={cardSize} />
-            </div>
-          );
-        })}
+        {sections.map((sec) => (
+          <Card key={sec.id} data={sec} />
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 
