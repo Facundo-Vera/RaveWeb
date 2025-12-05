@@ -13,6 +13,7 @@ const Card = ({ data }) => {
 
   return (
     <div className={`row g-4 align-items-center mb-5 pb-5 ${rowClass}`}>
+      
       {/* Texto */}
       <div className="col-12 col-lg-6 order-2 order-lg-1">
         <h2 className="text-white fw-normal display-6 mb-3">{title}</h2>
@@ -41,6 +42,7 @@ const Card = ({ data }) => {
           />
         </div>
       </div>
+
     </div>
   );
 };
