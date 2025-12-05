@@ -1,0 +1,117 @@
+.barra{
+    backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+
+.nav-link-custom {
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #b988f8;
+}
+
+/*& HEADER */
+
+.header-title {
+    font-size: 3rem; 
+    font-weight: 600;
+}
+
+
+.header-cta {
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none; 
+    transition:  0.5s ease;
+    background-color: #6d00fc71;
+}
+
+.header-cta:hover{
+  background-color: #6f00ffb6;
+}
+
+.scroll-indicator {
+    margin: 50px 0px;
+    opacity: 0.7;
+    font-size: 0.8rem;
+}
+
+.scroll-indicator .arrow {
+    font-size: 2rem;
+    line-height: 1;
+    margin-top: 15px;
+  
+    position: relative; 
+
+  animation: customAni 2s ease 0s infinite normal none;
+}
+
+
+@keyframes customAni {
+  0% {
+	animation-timing-function: ease-in;
+	opacity: 1;
+	transform: translateY(-26px);
+  }
+
+  24% {
+	opacity: 1;
+  }
+
+  40% {
+	animation-timing-function: ease-in;
+	transform: translateY(-24px);
+  }
+
+  65% {
+	animation-timing-function: ease-in;
+	transform: translateY(-12px);
+  }
+
+  82% {
+	animation-timing-function: ease-in;
+	transform: translateY(-6px);
+  }
+
+  93% {
+	animation-timing-function: ease-in;
+	transform: translateY(-4px);
+  }
+
+  25%,
+  55%,
+  75%,
+  87% {
+	animation-timing-function: ease-out;
+	transform: translateY(0px);
+  }
+
+  100% {
+	animation-timing-function: ease-out;
+	opacity: 1;
+	transform: translateY(0px);
+  }
+}
+
+@media (min-width: 375px)  {
+  .header-title{
+    font-size: 40px;
+  }
+  .header-cta {
+   height: 40px;
+   font-size: 15px;
+}
+
+}

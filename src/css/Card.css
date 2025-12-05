@@ -1,0 +1,56 @@
+
+.card {
+  background-color: #1c1c1d8f;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+  
+  
+}
+
+/* CARD GRANDE */
+.card-big {
+  height: 500px;
+}
+.card-big .card-img {
+  height: 330px;
+  object-fit: cover;
+}
+
+/* CARD CHICA */
+.card-small {
+  height: 300px;
+}
+.card-small .card-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: translateY(-4px) scale(1.001);
+}
+
+.boton {
+ 
+    background: transparent;
+    color: #f0f0f0; 
+    border: 1px solid rgba(255, 255, 255, 0.4); 
+    padding: 2px 4px;
+    border-radius: 8px; 
+    font-size: 0.85rem; 
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.boton:hover {
+    background-color: rgba(255, 255, 255, 0.15); 
+    border-color: rgba(255, 255, 255, 0.8); 
+}
+
+.boton:active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
