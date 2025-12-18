@@ -28,7 +28,7 @@ const ContactApp = () => {
   };
 
   return (
-    <div className="py-5 container">
+    <div className="py-5 container" id="contacto">
       <h2 className="fw-bold display-6">Contacto</h2>
       <div className="row ">
         <div className="col-12 col-md-6 order-md-1">
