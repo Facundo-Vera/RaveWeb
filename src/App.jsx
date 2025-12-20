@@ -1,5 +1,6 @@
 import ContactApp from './components/ContactApp';
 import Features from './components/Features';
+import Footer from './components/Footer';
 import HeaderApp from './components/HeaderApp';
 import ListCard from './components/ListCard';
 
@@ -12,6 +13,7 @@ const App = () => {
       <Features/>
       <ListCard/>
       <ContactApp/>
+      <Footer/>
     </div>
   )
 }
