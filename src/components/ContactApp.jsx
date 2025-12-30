@@ -1,95 +1,96 @@
-import Badges from "../components/Badges";
 import "../css/Contact.css";
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 const ContactApp = () => {
   const form = useRef();
-  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [sent, setSent] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
-    setShowSuccessMessage(false);
+    setSent(false);
+
     emailjs
       .sendForm("service_10wu4lv", "template_vbbo54c", form.current, {
         publicKey: "Sboa-LfCUF4tXDho4",
       })
       .then(
         () => {
-          console.log("SUCCESS!");
-
           form.current.reset();
-          setShowSuccessMessage(true);
+          setSent(true);
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          console.error("EmailJS error:", error);
         }
       );
   };
 
   return (
-    <div className="py-5 container" id="contacto">
-      <h2 className="fw-bold display-6">Contacto</h2>
-      <div className="row ">
-        <div className="col-12 col-md-6 order-md-1">
-          <div className="d-flex justify-content-center align-items-center mb-4 mb-md-0">
-            <Badges size="medium" />
-          </div>
+    <section className="contact-minimal" id="contacto">
+      <div className="contact-wrapper">
+        {/* INFO */}
+        <div className="contact-info">
+          <h2 className="fw-bold display-6">Contacto</h2>
+
+          <p className="contact-info-text">
+            Completá el formulario para agendar una reunión. Queremos conocer tu
+            idea, entender tus objetivos y transformar tu proyecto en una
+            experiencia digital sólida.
+          </p>
+
+          <div className="contact-divider" />
+
+          <p className="contact-info-text">
+            Si tenés una idea, un proyecto en mente o simplemente querés mejorar
+            tu presencia online, este es el primer paso.
+          </p>
         </div>
 
-        <form
-          className="mb-3 col-12 col-md-6 order-md-2 fondo-form "
-          ref={form}
-          onSubmit={sendEmail}
-        
-        >
-          {showSuccessMessage && (
-            <div className="alert alert-success" role="alert">
-              ¡Mensaje enviado con éxito! Nos pondremos en contacto contigo
-              pronto. 😊
-            </div>
-          )}
+        {/* FORM */}
+        <form ref={form} onSubmit={sendEmail} className="contact-form-clean">
+         
 
-          <label htmlFor="inputNombre" className="form-label mb-2">
-            Nombre
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            id="inputNombre"
-            name="user_name"
-            placeholder="Nombre completo"
-          />
-
-          <label htmlFor="inputEmail" className="form-label mt-2">
-            Email
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            id="inputEmail"
-            name="user_email"
-            placeholder="email@example.com"
-          />
-
-          <div className="mb-3">
-            <label htmlFor="textareaMensaje" className="mt-2 form-label">
-              Mensaje
-            </label>
-            <textarea
-              className="form-control"
-              id="textareaMensaje"
-              rows="3"
-              name="message"
-            ></textarea>
+          <div className="field">
+            <label>Nombre</label>
+            <input
+              type="text"
+              name="user_name"
+              placeholder="Tu nombre"
+              required
+            />
           </div>
 
-          <button className="btn-metalizado justify-content-end" type="submit" value="Send">
-            Enviar
+          <div className="field">
+            <label>Email</label>
+            <input
+              type="email"
+              name="user_email"
+              placeholder="tu@email.com"
+              required
+            />
+          </div>
+
+          <div className="field">
+            <label>Mensaje</label>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Contanos sobre tu proyecto..."
+              required
+            />
+          </div>
+           {sent && (
+            <span className="contact-success bg-success text-white px-3 py-2 rounded mt-3 d-inline-block">
+              Mensaje enviado correctamente. 🚀
+            </span>
+          )}
+
+          <button type="submit" className="contact-cta">
+            Enviar mensaje
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 };
 
