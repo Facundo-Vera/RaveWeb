@@ -1,3 +1,5 @@
+import "../css/Card.css";
+
 const Card = ({ data }) => {
   const {
     title,
@@ -13,9 +15,7 @@ const Card = ({ data }) => {
 
   return (
     <div className={`row g-4 align-items-center mb-5 pb-5 ${rowClass}`}>
-      
-      {/* Texto */}
-      <div className="col-12 col-lg-6 order-2 order-lg-1">
+      <div className="col-12 col-lg-6 order-2 order-lg-1  text-animate">
         <h2 className="text-white fw-normal display-6 mb-3">{title}</h2>
         <p className="text-secondary mb-4">{description}</p>
 
@@ -31,9 +31,12 @@ const Card = ({ data }) => {
         )}
       </div>
 
-      {/* Imagen */}
       <div className="col-12 col-lg-6 order-1 order-lg-2">
-        <div className="image-wrapper rounded-3 overflow-hidden shadow-lg">
+        <div
+          className={`image-wrapper animate-on-scroll ${
+            isReversed ? "animate-right" : "animate-left"
+          } rounded-3 overflow-hidden shadow-lg`}
+        >
           <img
             src={imageSrc}
             alt={imageAlt}
@@ -42,7 +45,6 @@ const Card = ({ data }) => {
           />
         </div>
       </div>
-
     </div>
   );
 };

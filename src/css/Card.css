@@ -1,0 +1,72 @@
+/* ===============================
+   IMAGE SCROLL ANIMATION
+================================ */
+.animate-on-scroll {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-range: entry 25% cover 45%;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+
+  will-change: transform, opacity;
+}
+
+.animate-left {
+  animation-name: image-left;
+}
+
+.animate-right {
+  animation-name: image-right;
+}
+
+@keyframes image-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes image-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* ===============================
+   TEXT SCROLL ANIMATION
+================================ */
+.text-animate {
+  view-timeline-name: --text;
+  view-timeline-axis: block;
+
+  animation-timeline: --text;
+  animation-name: text-reveal;
+  animation-range: entry 35% cover 55%;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+
+  will-change: transform, opacity;
+}
+
+@keyframes text-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
