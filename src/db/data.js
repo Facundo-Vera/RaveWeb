@@ -13,13 +13,12 @@ export   const sections = [
     },
     {
       id: 2,
-      title: "Dashboard de Administración",
+      title: "Landing Page - Gimnasio",
       description:
-        "Este proyecto es un Panel de Control (Dashboard) centralizado diseñado para ofrecer a los administradores una visión en tiempo real y resumida del rendimiento de un negocio, aplicación o sistema.",
+       "Landing page de estética premium orientada a generar confianza y reservas, destacando tratamientos, profesionalismo y resultados a través de un diseño minimalista, animaciones sutiles y una navegación fluida.",
       buttonText: "Visitar",
-      buttonUrl:"https://devbox-recurso.netlify.app/",
-      imageSrc:
-        "https://d25ltszcjeom5i.cloudfront.net/329462/tbuiadjrmz/672shots_so.png",
+      buttonUrl:"https://skin-beauty-two.vercel.app/",
+      imageSrc:"https://d25ltszcjeom5i.cloudfront.net/336379/dwrcrqcvji/496shots_so.png",
       imageAlt: "Foto proyecto",
       isReversed: true,
     },
