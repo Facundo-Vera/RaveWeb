@@ -1,6 +1,4 @@
-/* ===============================
-   IMAGE SCROLL ANIMATION
-================================ */
+
 .animate-on-scroll {
   view-timeline-name: --image;
   view-timeline-axis: block;
@@ -43,9 +41,7 @@
   }
 }
 
-/* ===============================
-   TEXT SCROLL ANIMATION
-================================ */
+
 .text-animate {
   view-timeline-name: --text;
   view-timeline-axis: block;
