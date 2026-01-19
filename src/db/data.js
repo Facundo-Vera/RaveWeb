@@ -13,7 +13,7 @@ export   const sections = [
     },
     {
       id: 2,
-      title: "Landing Page - Gimnasio",
+      title: "Landing Page - Estetica",
       description:
        "Landing page de estética premium orientada a generar confianza y reservas, destacando tratamientos, profesionalismo y resultados a través de un diseño minimalista, animaciones sutiles y una navegación fluida.",
       buttonText: "Visitar",
